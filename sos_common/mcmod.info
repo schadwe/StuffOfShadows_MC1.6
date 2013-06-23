@@ -1,0 +1,20 @@
+[
+{
+  "modid": "SOS",
+  "name": "Stuff Of Shadows",
+  "description": "This is the stuff of darkness and shadows.",
+  "version": "0.0.1",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "Schadwe"
+  ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
