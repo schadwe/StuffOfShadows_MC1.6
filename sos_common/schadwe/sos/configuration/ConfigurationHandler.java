@@ -39,6 +39,7 @@ public class ConfigurationHandler {
 
             /* Block configs */
             BlockIds.SHADOW_STONE = configuration.getBlock(Strings.SHADOW_STONE_NAME, BlockIds.SHADOW_STONE_DEFAULT).getInt(BlockIds.SHADOW_STONE_DEFAULT);
+            BlockIds.SHADOW_CUBE = configuration.getBlock(Strings.SHADOW_CUBE_NAME, BlockIds.SHADOW_CUBE_DEFAULT).getInt(BlockIds.SHADOW_CUBE_DEFAULT);
 
             /* Block property configs */
             //configuration.addCustomCategoryComment(CATEGORY_BLOCK_PROPERTIES, "Custom block properties");

@@ -25,7 +25,7 @@ public class Blocks {
 
     // Block instances
     public static Block shadowStone;
-
+    public static Block shadowCube;
 
     public static void init() {
 
@@ -33,6 +33,11 @@ public class Blocks {
         shadowStone = new BlockShadowStone(BlockIds.SHADOW_STONE);
         GameRegistry.registerBlock(shadowStone, Strings.SHADOW_STONE_NAME);
         LanguageRegistry.addName(shadowStone, "Shadow Stone");
+        
+        // Initialize Shadow Cube
+        shadowCube = new BlockShadowCube(BlockIds.SHADOW_CUBE);
+        GameRegistry.registerBlock(shadowCube, Strings.SHADOW_CUBE_NAME);
+        LanguageRegistry.addName(shadowCube, "Shadow");
 
         // Initialize Block Recipes
         initBlockRecipes();
