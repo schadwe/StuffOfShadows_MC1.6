@@ -19,7 +19,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemSOS extends Item {
     public ItemSOS(int id) {
-
         super(id - Reference.SHIFTED_ID_RANGE_CORRECTION);
         maxStackSize = 1;
         setNoRepair();
@@ -28,7 +27,6 @@ public class ItemSOS extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
-
         itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
 

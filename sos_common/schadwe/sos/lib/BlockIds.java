@@ -10,7 +10,8 @@ package schadwe.sos.lib;
  * 
  */
 public class BlockIds {
-
+	// Note: Block IDs are from 0 to 4096
+	
     /* Default block ids */
     public static int SHADOW_STONE_DEFAULT = 1300;
     public static int SHADOW_CUBE_DEFAULT = 1301;

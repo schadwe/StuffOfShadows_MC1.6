@@ -11,7 +11,8 @@ package schadwe.sos.lib;
  */
 
 public class ItemIds {
-    
+    // Note: Item IDs are from 4096 to 32000
+	
     /* Default item IDs */
     public static int SHADOW_DUST_DEFAULT = 13000;
 

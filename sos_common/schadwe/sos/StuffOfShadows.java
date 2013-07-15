@@ -7,15 +7,15 @@ import net.minecraft.creativetab.CreativeTabs;
 import schadwe.sos.block.Blocks;
 import schadwe.sos.item.Items;
 import schadwe.sos.lib.Reference;
+import schadwe.sos.proxies.CommonProxy;
 import schadwe.sos.configuration.ConfigurationHandler;
+import schadwe.sos.core.helper.LogHelper;
 import schadwe.sos.creativetab.CreativeTabSOS;
 
 import cpw.mods.fml.common.Mod;
-//import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -39,30 +39,38 @@ public class StuffOfShadows {
     @Instance(Reference.MOD_ID)
     public static StuffOfShadows instance;
 
-    //@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
-    //public static CommonProxy proxy;
+    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
+    public static CommonProxy proxy;
 
     public static CreativeTabs tabSOS = new CreativeTabSOS(CreativeTabs.getNextID(), Reference.MOD_ID);
     
-    @PreInit
+    @EventHandler
     public void preInit(FMLPreInitializationEvent event){
+        // Initialize log helper
+        LogHelper.init();
         
         // Initialize the configuration
         ConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CHANNEL_NAME + File.separator + Reference.MOD_ID + ".cfg"));
-    }
-    
-    @Init
-    public void load(FMLInitializationEvent event){
+  
+        // Register Renders (Client Only)
+        proxy.initRenderers();
         
+        // Register Sounds (Client Only)
+        proxy.initSounds();
+               
         // Initialize Items
         Items.init();
         
         // Initialize Blocks
         Blocks.init();
+    }
+    
+    @EventHandler
+    public void load(FMLInitializationEvent event){
     
     }
     
-    @PostInit
+    @EventHandler
     public void postInit(FMLPostInitializationEvent event){
         
     }
