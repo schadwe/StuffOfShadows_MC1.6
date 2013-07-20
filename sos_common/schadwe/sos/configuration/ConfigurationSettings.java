@@ -11,5 +11,8 @@ package schadwe.sos.configuration;
  */
 
 public class ConfigurationSettings {
-    // Add settings
+    // Fear Mechanism
+	public static int FEAR_TICK_TIMING;
+    public static String FEAR_TICK_TIMING_CONFIGNAME = "fearTickTiming";
+    public static final int FEAR_TICK_TIMING_DEFAULT = 20;
 }

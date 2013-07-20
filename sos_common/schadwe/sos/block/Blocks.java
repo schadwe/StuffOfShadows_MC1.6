@@ -45,8 +45,13 @@ public class Blocks {
     }
 
     private static void initBlockRecipes() {
-
-        GameRegistry.addRecipe(new ItemStack(shadowStone), new Object[] {"iii", "isi", "iii", Character.valueOf('i'), Items.shadowDust, Character.valueOf('s'), Block.stone });
+    	
+    	/* Shadow Stone */
+        GameRegistry.addRecipe(new ItemStack(shadowStone), new Object[] {"iii", 
+        																 "isi", 
+        																 "iii", 
+        																 Character.valueOf('i'), Items.shadowDust, 
+        																 Character.valueOf('s'), Block.stone });
     }    
     
 }

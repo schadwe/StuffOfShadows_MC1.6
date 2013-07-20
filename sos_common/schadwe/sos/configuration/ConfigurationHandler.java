@@ -19,7 +19,6 @@ import net.minecraftforge.common.Configuration;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */
-
 public class ConfigurationHandler {
     
     public static Configuration configuration;
@@ -27,7 +26,7 @@ public class ConfigurationHandler {
     public static final String CATEGORY_KEYBIND = "keybindings";
     public static final String CATEGORY_GRAPHICS = "graphics";
     public static final String CATEGORY_AUDIO = "audio";
-    public static final String CATEGORY_BLOCK_PROPERTIES = Configuration.CATEGORY_BLOCK + Configuration.CATEGORY_SPLITTER + "properties";
+    public static final String CATEGORY_FEAR_PROPERTIES = "Fear" + Configuration.CATEGORY_SPLITTER + "properties";
     public static final String CATEGORY_DURABILITY = Configuration.CATEGORY_ITEM + Configuration.CATEGORY_SPLITTER + "durability";
     
     public static void init(File configFile) {
@@ -41,13 +40,13 @@ public class ConfigurationHandler {
             BlockIds.SHADOW_STONE = configuration.getBlock(Strings.SHADOW_STONE_NAME, BlockIds.SHADOW_STONE_DEFAULT).getInt(BlockIds.SHADOW_STONE_DEFAULT);
             BlockIds.SHADOW_CUBE = configuration.getBlock(Strings.SHADOW_CUBE_NAME, BlockIds.SHADOW_CUBE_DEFAULT).getInt(BlockIds.SHADOW_CUBE_DEFAULT);
 
-            /* Block property configs */
-            //configuration.addCustomCategoryComment(CATEGORY_BLOCK_PROPERTIES, "Custom block properties");
-
             /* Item configs */
             ItemIds.SHADOW_DUST = configuration.getItem(Strings.SHADOW_DUST_NAME, ItemIds.SHADOW_DUST_DEFAULT).getInt(ItemIds.SHADOW_DUST_DEFAULT);
 
-
+            /* Fear properties configs */
+            configuration.addCustomCategoryComment(CATEGORY_FEAR_PROPERTIES, "Custom Fear mechanism properties");
+            ConfigurationSettings.FEAR_TICK_TIMING = configuration.get(CATEGORY_FEAR_PROPERTIES, ConfigurationSettings.FEAR_TICK_TIMING_CONFIGNAME, ConfigurationSettings.FEAR_TICK_TIMING_DEFAULT).getInt(ConfigurationSettings.FEAR_TICK_TIMING_DEFAULT);
+            
             /* Item durability configs */
             //ConfigurationSettings.MINIUM_STONE_MAX_DURABILITY = configuration.get(CATEGORY_DURABILITY, ConfigurationSettings.MINIUM_STONE_MAX_DURABILITY_CONFIGNAME, ConfigurationSettings.MINIUM_STONE_MAX_DURABILITY_DEFAULT).getInt(ConfigurationSettings.MINIUM_STONE_MAX_DURABILITY_DEFAULT);
 
@@ -59,4 +58,15 @@ public class ConfigurationHandler {
             configuration.save();
         }
     }
+    /*
+    public static void set(String categoryName, String propertyName, String newValue) {
+        configuration.load();
+        if (configuration.getCategoryNames().contains(categoryName)) {
+            if (configuration.getCategory(categoryName).containsKey(propertyName)) {
+                configuration.getCategory(categoryName).get(propertyName).set(newValue);
+            }
+        }
+        configuration.save();
+    }
+    */
 }

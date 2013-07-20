@@ -2,16 +2,17 @@ package schadwe.sos;
 
 import java.io.File;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
-
+import net.minecraftforge.common.MinecraftForge;
 import schadwe.sos.block.Blocks;
-import schadwe.sos.item.Items;
-import schadwe.sos.lib.Reference;
-import schadwe.sos.proxies.CommonProxy;
 import schadwe.sos.configuration.ConfigurationHandler;
 import schadwe.sos.core.helper.LogHelper;
 import schadwe.sos.creativetab.CreativeTabSOS;
-
+import schadwe.sos.gui.GuiFearMeter;
+import schadwe.sos.item.Items;
+import schadwe.sos.lib.Reference;
+import schadwe.sos.proxies.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -35,7 +36,6 @@ import cpw.mods.fml.common.network.NetworkMod;
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
 public class StuffOfShadows {
-
     @Instance(Reference.MOD_ID)
     public static StuffOfShadows instance;
 
@@ -67,11 +67,12 @@ public class StuffOfShadows {
     
     @EventHandler
     public void load(FMLInitializationEvent event){
-    
+        // Register tick handlers
+        proxy.registerHandlers();
     }
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent event){
-        
+    	MinecraftForge.EVENT_BUS.register(new GuiFearMeter(Minecraft.getMinecraft()));
     }
 }

@@ -25,12 +25,18 @@ public class Items {
         shadowDust = new ItemShadowDust(ItemIds.SHADOW_DUST);
         LanguageRegistry.addName(shadowDust, "Shadow Dust");
 
-        // Initialize Block Recipes
+        // Initialize Item Recipes
         initItemRecipes();
     }
     
     private static void initItemRecipes() {
 
-        //GameRegistry.addRecipe(new ItemStack(shadowStone), new Object[] {"iii", "isi", "iii", Character.valueOf('i'), Item.redstone, Character.valueOf('s'), Item.lightStoneDust });
+        /*GameRegistry.addRecipe(new ItemStack(shadowStone), 
+    		new Object[] {"iii", 
+    					  "isi", 
+    					  "iii", 
+    					  Character.valueOf('i'), Item.redstone, Character.valueOf('s'), 
+    					  Item.lightStoneDust });
+    	*/
     }
 }

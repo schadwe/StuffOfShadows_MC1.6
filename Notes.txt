@@ -1,0 +1,26 @@
+Fear Mechanism
+==============
+Fear rated from 0% to 100%.  Shown by bar/sphere/spiral in GUI.
+
+Fear caused by:
+- Darkness.  The darker the space, the more fear generated per second (20 tics). Fear gain as a percentage of light from max 15 units.
+- Damage by hostile mobs.
+- Looking directly at Endermen.
+- Hostile mob proximity in view (based on distance)?
+- Full moon increases fear gain rate if sky is visible.
+- Armor value reduces fear gain rate.
+- <50% Hunger fear gain faster as hunger bar is lower.
+
+Fear reduced by:
+- Defeating hostile mobs
+- Staying in light.  Torch/glowstone max reduction to 20%.  Sunlight only way to reduce to 0%.
+- Tamed dogs reduce fear.  Ex: 0.5% per second per dog, max 3 dogs.
+- Proximity of villagers (distance and number). 
+
+Fear effects (cumulative):
+- 0-50 = nothing
+- 51-60 = audio halucinations
+- 61-70 = visual halucinations.
+- 71-80 = start damage reduction, mining efficiency loss.  Decrease from 71-95.  At 95% no mining and minimal damage.
+- 81-90 = dizzy effect
+- 91-100 = confusion: random mapping movement (wasd) keys

@@ -1,5 +1,9 @@
 package schadwe.sos.proxies;
 
+import schadwe.sos.core.handlers.PlayerTickHandler;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
+
 
 /**
  * Stuff Of Shadows
@@ -17,5 +21,9 @@ public class CommonProxy {
 
 	public void initSounds() {
 
+	}
+	
+	public void registerHandlers(){
+		TickRegistry.registerTickHandler(new PlayerTickHandler(), Side.SERVER);
 	}
 }
