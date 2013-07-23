@@ -2,13 +2,11 @@ package schadwe.sos.core.handlers;
 
 import java.util.EnumSet;
 
-import schadwe.sos.core.fear.FearCore;
-import schadwe.sos.gui.GuiFearMeter;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
+import schadwe.sos.configuration.ConfigurationSettings;
+import schadwe.sos.core.fear.FearCore;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
@@ -32,7 +30,7 @@ public class PlayerTickHandler implements ITickHandler {
 	@Override
 	public void tickEnd(EnumSet<TickType> type, Object... tickData) {
 		tickCounter++;
-		if(tickCounter > 20) {
+		if(tickCounter > ConfigurationSettings.FEAR_TICK_TIMING) {
 			Minecraft mc = ModLoader.getMinecraftInstance();
 			FearCore.processLightLevel(mc.theWorld.getBlockLightValue((int)Math.floor(mc.thePlayer.posX), (int)Math.floor(mc.thePlayer.posY), (int)Math.floor(mc.thePlayer.posZ)));
 			tickCounter = 0;

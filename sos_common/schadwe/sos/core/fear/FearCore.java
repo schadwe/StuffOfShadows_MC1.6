@@ -58,9 +58,14 @@ public final class FearCore implements IExtendedEntityProperties{
 	
 	// Fear Access Methods
 	public static void processLightLevel(int lightLevel){		
-		fearLevel += (7 - lightLevel)/2;
-		if (fearLevel > 100) fearLevel = 100;
-		if (fearLevel < 0) fearLevel = 0;
+		int addFear = fearLevel + (7 - lightLevel)/2;
+		if (addFear > MAX_FEAR) {
+			fearLevel = 100;
+		} else if (addFear < MIN_FEAR) {
+			fearLevel = 0;
+		} else {
+			fearLevel = addFear;
+		}
 		
 		setDirty();
 	}
@@ -71,8 +76,15 @@ public final class FearCore implements IExtendedEntityProperties{
 	public void setFearLevel(int fear){
 		fearLevel = fear;
 	}
-	public void addFearLevel(int fear){
-		fearLevel += fear;
+	public static void addFearLevel(int fear){
+		int addFear = fearLevel + fear;
+		if (addFear > MAX_FEAR) {
+			fearLevel = 100;
+		} else if (addFear < MIN_FEAR) {
+			fearLevel = 0;
+		} else {
+			fearLevel = addFear;
+		}
 	}
 	
 	public static void setDirty() {

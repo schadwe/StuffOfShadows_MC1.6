@@ -46,25 +46,7 @@ public class StuffOfShadows {
     public static CommonProxy proxy;
 
     public static CreativeTabs tabSOS = new CreativeTabSOS(CreativeTabs.getNextID(), Reference.MOD_ID);
-    
-    /*
-    @EventHandler
-    public void onPlayerGetDamaged(EntityDamageByEntityEvent event)
-    {
-        Entity damaged = event.getEntity();
-     
-        if(damaged instanceof Player)
-        {
-            // The entity that got damaged when event was called is a player, so you can cast it as so.
-            Player player = (Player) damaged;
-        }
-        else
-        {
-            return;
-        }
-    }
-    */
-    
+        
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
         // Initialize log helper
