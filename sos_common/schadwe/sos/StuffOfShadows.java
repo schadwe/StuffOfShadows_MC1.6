@@ -4,9 +4,11 @@ import java.io.File;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraftforge.common.MinecraftForge;
 import schadwe.sos.block.Blocks;
 import schadwe.sos.configuration.ConfigurationHandler;
+import schadwe.sos.core.handlers.GenericEventHandler;
 import schadwe.sos.core.helper.LogHelper;
 import schadwe.sos.creativetab.CreativeTabSOS;
 import schadwe.sos.gui.GuiFearMeter;
@@ -21,6 +23,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * Stuff Of Shadows
@@ -43,6 +46,24 @@ public class StuffOfShadows {
     public static CommonProxy proxy;
 
     public static CreativeTabs tabSOS = new CreativeTabSOS(CreativeTabs.getNextID(), Reference.MOD_ID);
+    
+    /*
+    @EventHandler
+    public void onPlayerGetDamaged(EntityDamageByEntityEvent event)
+    {
+        Entity damaged = event.getEntity();
+     
+        if(damaged instanceof Player)
+        {
+            // The entity that got damaged when event was called is a player, so you can cast it as so.
+            Player player = (Player) damaged;
+        }
+        else
+        {
+            return;
+        }
+    }
+    */
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
@@ -69,6 +90,11 @@ public class StuffOfShadows {
     public void load(FMLInitializationEvent event){
         // Register tick handlers
         proxy.registerHandlers();
+        
+        // Register Player Tracker
+        GenericEventHandler handler = new GenericEventHandler();
+        MinecraftForge.EVENT_BUS.register(handler);
+        GameRegistry.registerPlayerTracker(handler);
     }
     
     @EventHandler

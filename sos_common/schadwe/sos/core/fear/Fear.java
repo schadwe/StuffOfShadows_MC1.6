@@ -1,5 +1,7 @@
 package schadwe.sos.core.fear;
 
+import net.minecraft.nbt.NBTTagCompound;
+
 /**
  * Stuff Of Shadows
  * 
@@ -11,12 +13,26 @@ package schadwe.sos.core.fear;
  */
 public class Fear {
 	
-	private int fearLevel;
+	static private int fearLevel;
+	 
+    public Fear()
+    {
+        //default values
+    	fearLevel = 0;
+    }
+
+    public void readFromNBTTagCompound(NBTTagCompound compound) {
+            //read the values you need
+    }
+
+    public void writeToNBTTagCompound(NBTTagCompound compound) {
+            //write the values
+    }
 	
-	public int getFearLevel(){
+	public static int getFearLevel(){
 		return fearLevel;
 	}
-	public void setFearLevel(int fear){
+	public static void setFearLevel(int fear){
 		fearLevel = fear;
 	}
 

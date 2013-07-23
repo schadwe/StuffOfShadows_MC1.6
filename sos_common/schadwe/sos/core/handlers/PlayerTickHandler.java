@@ -2,6 +2,7 @@ package schadwe.sos.core.handlers;
 
 import java.util.EnumSet;
 
+import schadwe.sos.core.fear.FearCore;
 import schadwe.sos.gui.GuiFearMeter;
 
 import net.minecraft.client.Minecraft;
@@ -33,12 +34,7 @@ public class PlayerTickHandler implements ITickHandler {
 		tickCounter++;
 		if(tickCounter > 20) {
 			Minecraft mc = ModLoader.getMinecraftInstance();
-			int xpos = (int) Math.floor(mc.thePlayer.posX);
-			int ypos = (int) Math.floor(mc.thePlayer.posY);
-			int zpos = (int) Math.floor(mc.thePlayer.posZ);
-			int lightLevel = mc.theWorld.getBlockLightValue(xpos, ypos, zpos);
-			System.out.println("*** Current Light Level: " + lightLevel);
-			GuiFearMeter.fearLevel = lightLevel;
+			FearCore.processLightLevel(mc.theWorld.getBlockLightValue((int)Math.floor(mc.thePlayer.posX), (int)Math.floor(mc.thePlayer.posY), (int)Math.floor(mc.thePlayer.posZ)));
 			tickCounter = 0;
 			EntityPlayer entityplayer = mc.thePlayer;
 		}

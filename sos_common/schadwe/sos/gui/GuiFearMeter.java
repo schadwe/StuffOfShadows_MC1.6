@@ -7,7 +7,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.event.EventPriority;
 import net.minecraftforge.event.ForgeSubscribe;
-import schadwe.sos.core.fear.Fear;
+import schadwe.sos.core.fear.FearCore;
 
 /**
  * Stuff Of Shadows
@@ -20,7 +20,7 @@ import schadwe.sos.core.fear.Fear;
  */
 public class GuiFearMeter {
 	  private Minecraft mc;
-	  public static int fearLevel;
+	  //private static int fearLevel;
 
 	  public GuiFearMeter(Minecraft mc)
 	  {
@@ -43,6 +43,6 @@ public class GuiFearMeter {
 			ScaledResolution sclRes = new ScaledResolution(this.mc.gameSettings, this.mc.displayWidth, this.mc.displayHeight);
 			
 			//fontRender.drawStringWithShadow("This is the test string!", xPos, yPos, 0xffffffff);
-			fontRender.drawStringWithShadow(Integer.toString(fearLevel), xPos, yPos, 0xffffffff);
+			fontRender.drawStringWithShadow(Integer.toString(FearCore.getFearLevel())+"%", xPos, yPos, 0xffffffff);
 	  }
 }
