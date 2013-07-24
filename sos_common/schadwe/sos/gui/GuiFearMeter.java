@@ -20,7 +20,6 @@ import schadwe.sos.core.fear.FearCore;
  */
 public class GuiFearMeter {
 	  private Minecraft mc;
-	  //private static int fearLevel;
 
 	  public GuiFearMeter(Minecraft mc)
 	  {
@@ -30,8 +29,7 @@ public class GuiFearMeter {
 	  
 	  @ForgeSubscribe(priority = EventPriority.NORMAL)
 	  public void onRenderExperienceBar(RenderGameOverlayEvent event) {
-		    if(event.isCancelable() || event.type != ElementType.EXPERIENCE)
-		    {      
+		    if(event.isCancelable() || event.type != ElementType.EXPERIENCE) {      
 		      return;
 		    }
 

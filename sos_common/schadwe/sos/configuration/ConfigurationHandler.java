@@ -1,14 +1,16 @@
 package schadwe.sos.configuration;
 
 import java.io.File;
-//import java.util.logging.Level;
+import java.util.logging.Level;
 
+import net.minecraftforge.common.Configuration;
 import schadwe.sos.lib.BlockIds;
 import schadwe.sos.lib.ItemIds;
+import schadwe.sos.lib.Reference;
 import schadwe.sos.lib.Strings;
-
+import cpw.mods.fml.common.FMLLog;
+//import java.util.logging.Level;
 //import cpw.mods.fml.common.FMLLog;
-import net.minecraftforge.common.Configuration;
 
 /**
  * Stuff Of Shadows
@@ -36,23 +38,23 @@ public class ConfigurationHandler {
         try {
             configuration.load();
 
-            /* Block configs */
+            // Block configs
             BlockIds.SHADOW_STONE = configuration.getBlock(Strings.SHADOW_STONE_NAME, BlockIds.SHADOW_STONE_DEFAULT).getInt(BlockIds.SHADOW_STONE_DEFAULT);
             BlockIds.SHADOW_CUBE = configuration.getBlock(Strings.SHADOW_CUBE_NAME, BlockIds.SHADOW_CUBE_DEFAULT).getInt(BlockIds.SHADOW_CUBE_DEFAULT);
 
-            /* Item configs */
+            // Item configs
             ItemIds.SHADOW_DUST = configuration.getItem(Strings.SHADOW_DUST_NAME, ItemIds.SHADOW_DUST_DEFAULT).getInt(ItemIds.SHADOW_DUST_DEFAULT);
 
-            /* Fear properties configs */
+            // Fear properties configs
             configuration.addCustomCategoryComment(CATEGORY_FEAR_PROPERTIES, "Custom Fear mechanism properties");
             ConfigurationSettings.FEAR_TICK_TIMING = configuration.get(CATEGORY_FEAR_PROPERTIES, ConfigurationSettings.FEAR_TICK_TIMING_CONFIGNAME, ConfigurationSettings.FEAR_TICK_TIMING_DEFAULT).getInt(ConfigurationSettings.FEAR_TICK_TIMING_DEFAULT);
+            ConfigurationSettings.FEAR_FROM_DAMAGE = configuration.get(CATEGORY_FEAR_PROPERTIES, ConfigurationSettings.FEAR_FROM_DAMAGE_CONFIGNAME, ConfigurationSettings.FEAR_FROM_DAMAGE_DEFAULT).getBoolean(ConfigurationSettings.FEAR_FROM_DAMAGE_DEFAULT);
             
-            /* Item durability configs */
-            //ConfigurationSettings.MINIUM_STONE_MAX_DURABILITY = configuration.get(CATEGORY_DURABILITY, ConfigurationSettings.MINIUM_STONE_MAX_DURABILITY_CONFIGNAME, ConfigurationSettings.MINIUM_STONE_MAX_DURABILITY_DEFAULT).getInt(ConfigurationSettings.MINIUM_STONE_MAX_DURABILITY_DEFAULT);
+            // Item durability configs
 
         }
         catch (Exception e) {
-            //FMLLog.log(Level.SEVERE, e, Reference.MOD_NAME + " has had a problem loading its configuration");
+        	FMLLog.log(Level.SEVERE, e, Reference.MOD_NAME + " has had a problem loading its configuration");
         }
         finally {
             configuration.save();
