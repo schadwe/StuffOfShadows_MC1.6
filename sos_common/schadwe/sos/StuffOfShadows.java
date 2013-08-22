@@ -4,7 +4,6 @@ import java.io.File;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraftforge.common.MinecraftForge;
 import schadwe.sos.block.Blocks;
 import schadwe.sos.configuration.ConfigurationHandler;
@@ -77,6 +76,9 @@ public class StuffOfShadows {
         GenericEventHandler handler = new GenericEventHandler();
         MinecraftForge.EVENT_BUS.register(handler);
         GameRegistry.registerPlayerTracker(handler);
+        
+        // Register Tile Entities
+        Blocks.registerTileEntities();
     }
     
     @EventHandler

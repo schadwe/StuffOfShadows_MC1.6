@@ -18,7 +18,7 @@ public class Reference {
     public static final String CHANNEL_NAME = MOD_ID;
     
     public static final String FINGERPRINT = "@FINGERPRINT@";
-    public static final int SECOND_IN_TICKS = 20;
+    public static final int TICKS_PER_SECOND = 20;
     public static final int SHIFTED_ID_RANGE_CORRECTION = 256;
     public static final String SERVER_PROXY_CLASS = "schadwe.sos.proxies.CommonProxy";
     public static final String CLIENT_PROXY_CLASS = "schadwe.sos.proxies.ClientProxy";

@@ -11,45 +11,55 @@ import schadwe.sos.StuffOfShadows;
 import schadwe.sos.lib.BlockIds;
 import schadwe.sos.lib.Reference;
 import schadwe.sos.lib.Strings;
-import schadwe.sos.tileentity.TileEntityShadowCube;
+import schadwe.sos.tileentity.TileEntityDarkness;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Stuff Of Shadows
  * 
- * BlockShadowCube
+ * BlockDarkness
  * 
  * @author schadwe
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */
-public class BlockShadowCube extends BlockContainer {
-	
-    public BlockShadowCube(int id) {
-        super(id, Material.glass);
-        
-        this.setUnlocalizedName(Strings.SHADOW_CUBE_NAME);
+public class BlockDarkness extends BlockContainer {
+
+	public BlockDarkness(int id) {
+		super(id, Material.rock);
+
+		this.setUnlocalizedName(Strings.DARKNESS_NAME);
         this.setCreativeTab(StuffOfShadows.tabSOS);
-        this.setHardness(2F);
-        this.setResistance(10f);
-    }
-    
+		//setBlockBounds(0, 0, 0, 0, 0, 0);
+		//setTickRandomly(true);
+		//setLightOpacity(215);
+	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister) {
-		blockIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Strings.SHADOW_CUBE_NAME);
+		blockIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Strings.DARKNESS_NAME);
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world) {
-		return new TileEntityShadowCube();
+		return new TileEntityDarkness();
 	}
 	
 	@Override
 	public int idDropped(int meta, Random random, int fortune) {
-	    // -1 = Nothing is dropped
 		return -1;
+	}
+	
+	@Override
+	public boolean isOpaqueCube(){
+		return false;
+	}
+	
+	@Override
+	public boolean renderAsNormalBlock(){
+		return false;
 	}
 	
 	@Override
@@ -70,7 +80,7 @@ public class BlockShadowCube extends BlockContainer {
 	}
 	
 	private void breakNeighbor(World world, int x, int y, int z){
-		if (world.getBlockId(x, y, z) == BlockIds.DARKNESS) {
+		if (world.getBlockId(x, y, z) == BlockIds.DARKNESS || world.getBlockId(x, y, z) == BlockIds.SHADOW_CUBE) {
 			world.destroyBlock(x, y, z, false);
 		}
 	}

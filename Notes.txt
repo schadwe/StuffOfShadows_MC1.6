@@ -22,5 +22,58 @@ Fear effects (cumulative):
 - 51-60 = audio halucinations
 - 61-70 = visual halucinations.
 - 71-80 = start damage reduction, mining efficiency loss.  Decrease from 71-95.  At 95% no mining and minimal damage.
-- 81-90 = dizzy effect
+- 81-90 = dizzy effect (player effect nausia)
 - 91-100 = confusion: random mapping movement (wasd) keys
+
+Aspects of Shadows
+==================
+- Darkness
+- Cold
+- Fear
+
+Items
+=====
+Liquid Shadow
+- Blindness on contact.
+- Causes darkness around liquid block.  Same effect as darkness at bedrock level.
+
+Shadow Armor
+- Ability: Hide in shadows -> Transparency (or invisability) + mob detect down by light level.
+- Night vision in low light
+- Cold touch (solidify). Can turn water->ice, Lava->stone, Liquid redstone->redstone block,
+
+Shadow Sword
+
+Shadow Bow
+- Hit causes blindness
+
+Shadow tool
+
+Shadow Ball
+- Shadow dust + Magma Cream = Shadow ball
+- Causes blindness
+- Causes Confusion
+- Causes audio Halucinations
+
+Shadow Dust
+- Mostly used for recipes
+
+Shadow Sand
+- Acts like quicksand
+- Causes blindness
+
+Shadow stone
+- Mostly decorative.
+- Fast to walk on.
+
+Block of Shadow
+- Causes darkness around block.  Same effect as darkness at bedrock level.
+- Cold touch on any liquid touching it (except liquid shadow).
+- Increased monster spawn rate?
+
+Shadow infusor
+- Fabrication block
+- Armor + liquid shadow = Shadow Armor
+- Weapon/tool liquid shadow = Shadow Weapon/tool
+
+

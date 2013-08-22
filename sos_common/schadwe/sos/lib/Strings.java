@@ -21,6 +21,7 @@ public class Strings {
     /* Block name constants */
     public static final String SHADOW_STONE_NAME = "shadowStone";
     public static final String SHADOW_CUBE_NAME = "shadowCube";
+    public static final String DARKNESS_NAME = "darkness";
 
     /* Item name constants */
     public static final String SHADOW_DUST_NAME = "shadowDust";

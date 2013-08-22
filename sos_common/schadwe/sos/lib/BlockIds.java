@@ -15,9 +15,11 @@ public class BlockIds {
     /* Default block ids */
     public static int SHADOW_STONE_DEFAULT = 1300;
     public static int SHADOW_CUBE_DEFAULT = 1301;
+    public static int DARKNESS_DEFAULT = 1302;
 
     /* Current block ids */
     public static int SHADOW_STONE;
     public static int SHADOW_CUBE;
+    public static int DARKNESS;
 
 }

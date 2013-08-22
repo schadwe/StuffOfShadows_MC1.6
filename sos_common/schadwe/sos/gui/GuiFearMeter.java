@@ -2,7 +2,7 @@ package schadwe.sos.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.ScaledResolution;
+//import net.minecraft.client.gui.ScaledResolution;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.event.EventPriority;
@@ -38,7 +38,7 @@ public class GuiFearMeter {
 		    int yPos = 2;
 		    
 		    FontRenderer fontRender = this.mc.fontRenderer;
-			ScaledResolution sclRes = new ScaledResolution(this.mc.gameSettings, this.mc.displayWidth, this.mc.displayHeight);
+			//ScaledResolution sclRes = new ScaledResolution(this.mc.gameSettings, this.mc.displayWidth, this.mc.displayHeight);
 			
 			//fontRender.drawStringWithShadow("This is the test string!", xPos, yPos, 0xffffffff);
 			fontRender.drawStringWithShadow(Integer.toString(FearCore.getFearLevel())+"%", xPos, yPos, 0xffffffff);

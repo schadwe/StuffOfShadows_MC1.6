@@ -27,7 +27,8 @@ public class GenericEventHandler implements IPlayerTracker {
 
     @Override
     public void onPlayerChangedDimension(EntityPlayer player) {
-        FearCore.forPlayer(player).setDirty();
+        FearCore.forPlayer(player);
+        FearCore.setDirty();
     }
 
     @Override
@@ -41,6 +42,7 @@ public class GenericEventHandler implements IPlayerTracker {
     @Override
     public void onPlayerRespawn(EntityPlayer player) {
     	FearCore.setFearLevel(0);
-        FearCore.forPlayer(player).setDirty();
+        FearCore.forPlayer(player);
+        FearCore.setDirty();
     }
 }
