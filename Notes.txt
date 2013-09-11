@@ -23,7 +23,7 @@ Fear effects (cumulative):
 - 61-70 = visual halucinations.
 - 71-80 = start damage reduction, mining efficiency loss.  Decrease from 71-95.  At 95% no mining and minimal damage.
 - 81-90 = dizzy effect (player effect nausia)
-- 91-100 = confusion: random mapping movement (wasd) keys
+- 95-100 = confusion: random mapping movement (wasd) keys
 
 Aspects of Shadows
 ==================
@@ -43,6 +43,7 @@ Shadow Armor
 - Cold touch (solidify). Can turn water->ice, Lava->stone, Liquid redstone->redstone block,
 
 Shadow Sword
+- Hit causes mobs to run away
 
 Shadow Bow
 - Hit causes blindness
@@ -70,6 +71,9 @@ Block of Shadow
 - Causes darkness around block.  Same effect as darkness at bedrock level.
 - Cold touch on any liquid touching it (except liquid shadow).
 - Increased monster spawn rate?
+
+"fog" block
+- Creates animated black fog around block. Radius?
 
 Shadow infusor
 - Fabrication block

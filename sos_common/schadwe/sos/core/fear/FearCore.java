@@ -137,7 +137,7 @@ public final class FearCore implements IExtendedEntityProperties{
         if (fearLevel >= ConfigurationSettings.FEAR_LEVEL_VISUAL_HALLUCINATIONS  && (int)(Math.random() * 100 + 1) <= 5){
             // Add fake mob spawn and despawn here (Client side only)
             Minecraft mc = ModLoader.getMinecraftInstance();
-            if (mc.theWorld.isRemote){
+            if (mc.theWorld.isRemote){ // Only want the client to see hallucination
                 // Get random mob
                 //EntitySkeleton ent = new EntitySkeleton(mc.theWorld);
                 Entity ent;

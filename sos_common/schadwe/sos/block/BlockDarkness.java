@@ -27,13 +27,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockDarkness extends BlockContainer {
 
 	public BlockDarkness(int id) {
-		super(id, Material.rock);
+		super(id, Material.air);
 
 		this.setUnlocalizedName(Strings.DARKNESS_NAME);
         this.setCreativeTab(StuffOfShadows.tabSOS);
-		//setBlockBounds(0, 0, 0, 0, 0, 0);
+		setBlockBounds(0, 0, 0, 0, 0, 0);
 		//setTickRandomly(true);
-		//setLightOpacity(215);
+		setLightOpacity(215);
 	}
 	
 	@Override
@@ -52,6 +52,11 @@ public class BlockDarkness extends BlockContainer {
 		return -1;
 	}
 	
+    @Override
+    public boolean isBlockNormalCube(World world, int x, int y, int z) {
+        return false;
+    }
+	
 	@Override
 	public boolean isOpaqueCube(){
 		return false;
@@ -60,6 +65,21 @@ public class BlockDarkness extends BlockContainer {
 	@Override
 	public boolean renderAsNormalBlock(){
 		return false;
+	}
+	
+	@Override
+	public boolean isCollidable(){
+	    return false;
+	}
+	
+	@Override
+	public boolean isAirBlock(World world, int x, int y, int z){
+	    return true;
+	}
+	
+	@Override
+	public boolean canBeReplacedByLeaves(World world, int x, int y, int z){
+	    return true;
 	}
 	
 	@Override
